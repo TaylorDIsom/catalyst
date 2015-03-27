@@ -29,6 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import catalyst.catalyst.R;
+import catalyst.catalyst.models.Application;
+import catalyst.catalyst.presenter.LogInViewPresenter;
+import catalyst.catalyst.support.ClickListener;
 
 
 /**
@@ -54,11 +57,15 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private View mProgressView;
     private View mLoginFormView;
 
+    private ClickListener listener;
+    LogInViewPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        Application app = Application.INSTANCE;
+        presenter = new LogInViewPresenter(this, app.getModel());
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -76,12 +83,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        /*mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
+        */
+        mEmailSignInButton.setOnClickListener(this);
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
