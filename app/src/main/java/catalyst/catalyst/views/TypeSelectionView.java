@@ -12,4 +12,6 @@ public interface TypeSelectionView {
     String getPreference();
 
     void createEmployer();
+
+    void createJobSeeker();
 }

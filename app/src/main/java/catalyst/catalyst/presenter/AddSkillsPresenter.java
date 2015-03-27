@@ -5,17 +5,17 @@ import android.view.View;
 import catalyst.catalyst.R;
 import catalyst.catalyst.models.Model;
 import catalyst.catalyst.support.ClickListener;
+import catalyst.catalyst.views.AddSkillsView;
 import catalyst.catalyst.views.EmployerAttributesView;
-import catalyst.catalyst.views.JobSeekerAttributesView;
 
 /**
  * Created by Brent Satterwhite on 3/27/2015.
  */
-public class JobSeekerAttributesPresenter implements ClickListener {
-    private JobSeekerAttributesView view;
+public class AddSkillsPresenter implements ClickListener {
+    private AddSkillsView view;
     private final Model model;
 
-    public JobSeekerAttributesPresenter(JobSeekerAttributesView v, Model m) {
+    public AddSkillsPresenter(AddSkillsView v, Model m) {
         this.view = v;
         this.model = m;
         view.addSearchRequestNotifyCallback(this);
@@ -24,8 +24,7 @@ public class JobSeekerAttributesPresenter implements ClickListener {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.nextButton:
-                view.addSkills();
+            case R.id.doneButton:
                 break;
         }
     }

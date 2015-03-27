@@ -57,4 +57,10 @@ public class TypeSelectionActivity extends Activity implements TypeSelectionView
         Intent i = new Intent(this, EmployerAttributesActivity.class);
         startActivity(i);
     }
+
+    @Override
+    public void createJobSeeker() {
+        Intent i = new Intent(this, JobSeekerAttributesActivity.class);
+        startActivity(i);
+    }
 }

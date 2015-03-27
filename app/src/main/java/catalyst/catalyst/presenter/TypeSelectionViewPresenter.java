@@ -29,6 +29,8 @@ public class TypeSelectionViewPresenter implements ClickListener {
                 String preference = view.getPreference();
                 if (preference.equals("Candidates")) {
                     view.createEmployer();
+                } else {
+                    view.createJobSeeker();
                 }
                 break;
         }

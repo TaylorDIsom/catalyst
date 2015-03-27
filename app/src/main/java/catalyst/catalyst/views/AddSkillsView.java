@@ -5,8 +5,7 @@ import catalyst.catalyst.support.ClickListener;
 /**
  * Created by Brent Satterwhite on 3/27/2015.
  */
-public interface JobSeekerAttributesView {
+public interface AddSkillsView {
     void addSearchRequestNotifyCallback(ClickListener listener);
 
-    void addSkills();
 }
